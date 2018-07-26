@@ -1,0 +1,19 @@
+{
+    "name": "list-diff",
+    "version": "0.1.0",
+    "description": "a list-diff for vdom",
+    "main": "src/index.js",
+    "scripts": {
+
+    },
+    "keywords": [
+      "list-diff",
+    ],
+    "author": "mikezhufromsz@gmail.com",
+    "license": "MIT",
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+  }
+  
