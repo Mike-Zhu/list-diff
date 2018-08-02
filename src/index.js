@@ -19,31 +19,27 @@ function diff(oldList, newList, key) {
     }
     let filterList = oldSortList.filter(res => res !== null)
     let k = 0
-    while (k < filterList.length) {
+    while (k < newKeyList.length) {
         let oldIndex = filterList.indexOf(k)
-        if (k !== oldIndex) {
-            let insert = filterList.splice(oldIndex, 1)[0]
-            filterList.splice(k, 0, insert)
+        if (oldIndex >= 0) {
+            if (k !== oldIndex) {
+                let insert = filterList.splice(oldIndex, 1)[0]
+                filterList.splice(k, 0, insert)
+                diffList.push({
+                    newIndex: k,
+                    oldIndex: oldIndex,
+                    type: 2 //换位置
+                })
+            }
+        } else {
+            filterList.splice(k, 0, k)
             diffList.push({
                 index: k,
-                itemIndex: oldIndex,
-                type: 2 //换位置
-            })
-        }
-        k++
-    }
-    let l = 0,
-        newLength = newKeyList.length
-    while (filterList.length < newLength) {
-        if (filterList.indexOf(l) < 0) {
-            filterList.push(l)
-            diffList.push({
-                index: k,
-                item: newList[l],
+                item:newList[k],
                 type: 1 //新增
             })
         }
-        l++
+        k++
     }
     return diffList
 }

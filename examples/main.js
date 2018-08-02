@@ -1,9 +1,9 @@
-var newList = Array(2000).fill(1).map((res, index) => ({
-    id: index
+var oldList = [1, 2, 3, 5, 9].map(res => ({
+    id: res,
 }))
-var oldList = Array(2000).fill(1).map((res, index) => ({
-    id: index
-})).sort((a, b) => Math.random() * 2 - 1)
+var newList = [1, 10, 7, 4, 9, 5, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19].map(res => ({
+    id: res,
+}))
 var moves = diff(oldList, newList, "id")
 
 var app = document.querySelector('#app'),
@@ -22,6 +22,7 @@ function getLi(res) {
 
 app.appendChild(ul)
 console.log(`moves' length is ${moves.length}`)
+console.log(moves)
 setTimeout(() => {
     let time1 = new Date().getTime()
     let childNodes = ul.childNodes
@@ -41,10 +42,10 @@ setTimeout(() => {
                 break
             //move
             case 2:
-                ul.insertBefore(childNodes[res.itemIndex], childNodes[res.index])
+                ul.insertBefore(childNodes[res.oldIndex], childNodes[res.newIndex])
                 break
         }
     })
     let time2 = new Date().getTime()
     console.log(`list length is ${moves.length} and rerender use ${time2 - time1} ms`)
-}, 3000)
+}, 1500)
