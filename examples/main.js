@@ -22,7 +22,6 @@ function getLi(res) {
 
 app.appendChild(ul)
 console.log(`moves' length is ${moves.length}`)
-console.log(moves)
 setTimeout(() => {
     let time1 = new Date().getTime()
     let childNodes = ul.childNodes
