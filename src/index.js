@@ -52,3 +52,5 @@ function getKey(list, key) {
 function isFunction(data) {
     return toString.call(data) === "[object Function]"
 }
+
+//add test
